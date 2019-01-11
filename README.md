@@ -4,9 +4,14 @@ This Repository Contains Various Types of Basic Programming Script. Just for Fun
 
 ```
 Author:
+       Admin
        Suraj Singh Bisht
        surajsinghbisht054@gmail.com
 
+
+
+       Arvind Sharma
+       arvindsharma4575@gmail.com
 
 ```
 
@@ -25,7 +30,5 @@ Types Of Programming Language.
 - Html
 - Many Others Also
 
-best of luck.... 
 
-from SurajSinghBisht
 
