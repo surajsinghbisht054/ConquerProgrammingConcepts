@@ -10,3 +10,7 @@ Author:
 
 ```
 
+If You Also Want to Contribute In This Repo as New beginner. Just Sent A Email To `surajsinghbisht054@gmail.com`.  I will add your Github Username As New Collaborator In This Repo Permission.
+Ok, After That you also can Directly, Update And Edit this repo.
+
+
