@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1546878736 source:/home/stunning/Desktop/Random Practice work/TikToeGame.cpp/main.cpp
+	<iostream>
+	<stdlib.h>
+	<math.h>
+	<stdio.h>
+	<unistd.h>
+
