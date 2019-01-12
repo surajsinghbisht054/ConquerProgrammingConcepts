@@ -24,10 +24,10 @@ using namespace std;
 /*----------------------------------------
 global variables
 ----------------------------------------*/
-char table[10]={'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+int table[10]={'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 int itr; // used to move loop
 int position; // used to store user selected position on table
-int flage; //to obatain function return value
+int flag; //to obatain function return value
 char mark;
 
 /*----------------------------------------
@@ -42,62 +42,56 @@ void displayTable(){
 
 }
 
-/*----------------------------------------
-update mark on the screen using player
-selected position...
+    /*----------------------------------------
+    update mark on the screen using player
+    selected position...
 ----------------------------------------*/
 int updateTable(int pos, char mark, int player){
 
-    //system("clear");
-    table[pos]=mark;
-    cout<<"position "<<pos<<endl;
-    cout<<"table in functin"<<table[pos]<<endl;
+    system("clear");
 
-
-/*----------------------------------------
-Here we check the pos and then mark the position
-----------------------------------------*/
-    if(pos==1 && table[1]=='1'){
+    /*----------------------------------------
+    Here we check the pos and then mark the position
+    ----------------------------------------*/
+    if(pos == 1 && table[1] == '1'){
         table[pos]=mark;
         displayTable();
         return player;
-    }else if(pos==2 && table[2]=='2'){
+    }else if(pos == 2 && table[2] == '2'){
         table[pos]=mark;
         displayTable();
         return player;
-    }else if(pos==3 && table[3]=='3'){
+    }else if(pos == 3 && table[3] == '3'){
         table[pos]=mark;
         displayTable();
         return player;
-    }else if(pos==4 && table[4]=='4'){
+    }else if(pos == 4 && table[4] == '4'){
         table[pos]=mark;
         displayTable();
         return player;
-    }else if(pos==5 && table[5]=='5'){
+    }else if(pos == 5 && table[5] == '5'){
         table[pos]=mark;
         displayTable();
         return player;
-    }else if(pos==6 && table[6]=='6'){
+    }else if(pos == 6 && table[6] == '6'){
         table[pos]=mark;
         displayTable();
         return player;
-    }else if(pos==7 && table[7]=='7'){
+    }else if(pos == 7 && table[7] == '7'){
         table[pos]=mark;
         displayTable();
         return player;
-    }else if(pos==8 && table[8]=='8'){
+    }else if(pos == 8 && table[8] == '8'){
         table[pos]=mark;
         displayTable();
         return player;
-    }else if(pos==9 && table[9]=='9'){
+    }else if(pos == 9 && table[9] == '9'){
         table[pos]=mark;
         displayTable();
         return player;
     }else{
       	cout<<"Please Enter Valid Position"<<endl;
        player--;
-       cout<<"else position "<<pos<<endl;
-       cout<<"player "<<player<<endl;
        displayTable();
        return player;
      }
@@ -165,20 +159,18 @@ int main(){
          cin>>position;
          player=updateTable(position, mark, player);
 
-         flage=gameWinner();
+         flag=gameWinner();
 
         player++;
-    }while(flage==-1);
+    }while(flag==-1);
 
-    if(flage==1){
+    if(flag==1){
         cout<<"Congratulation :)"<<endl;
+        player=(player%2==0)?1:2;
         cout<<"++++[Player "<<player<<" is winner]++++"<<endl;
     }else{
         cout<<"Match Draw :("<<endl;
     }
-
-
-
 
     return 0;
 }
