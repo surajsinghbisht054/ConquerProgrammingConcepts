@@ -6,19 +6,18 @@ New Scripts
 ```
 ### Arvind Sharma (Working Over File/Folder name list)
 ```
-Slowest Scripts
+Working Over Tic Toe Game TikToeGame/main.cpp
 
 ```
 
 ### Arvind Sharma Request To Suraj Singh
 ```
-bro.. in my tictoegame.cpp project. there is error of data type change can you fix it.
-you can understand it by using it...
 
 ```
 
 ### Suraj Singh Request To Arvind Sharma
 ```
-Arvind, Increase Your Speed Of Code Writing. And Please use Clean Directory names and Clean Complile File name
-
+Tik Toe main Deleted By Me Because, Everything is Complete Mess of Codes. Nothing Looks Correct.
+That's Why I Suggest You To Rewrite It From Beginning. 
+Don't I Will Contribute Completely. 
 ```

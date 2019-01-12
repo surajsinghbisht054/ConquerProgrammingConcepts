@@ -11,117 +11,137 @@
 *
 *****************************************************************/
 
-// Include header file
+/*----------------------------------------
+include header file
+----------------------------------------*/
 #include <iostream>
 #include <stdlib.h>
-#include <math.h>
-#include <stdio.h>
 #include <unistd.h>
+#include <stdio.h>
 
 using namespace std;
 
-// Global variable uses this program.
-char seedTable[10]={0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-int itr1=0; //for for loop
-int position;
+/*----------------------------------------
+global variables
+----------------------------------------*/
+char table[10]={'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+int itr; // used to move loop
+int position; // used to store user selected position on table
+int flage; //to obatain function return value
 char mark;
-int i;
 
-// Game Plate for the game.
-void GamePlate(){
-        printf("\n\
-    __%d__|__%d__|__%d__\n\
-    __%d__|__%d__|__%d__\n\
-    __%d__|__%d__|__%d__\n\
-         |      |      \n", seedTable[1], seedTable[2], seedTable[3],
-         seedTable[4], seedTable[5], seedTable[6], seedTable[7],
-          seedTable[8], seedTable[9]);
+/*----------------------------------------
+game status display
+----------------------------------------*/
+void displayTable(){
+    printf("\n\
+    __%c__|__%c__|__%c__\n\
+    __%c__|__%c__|__%c__\n\
+    __%c__|__%c__|__%c__\n\
+         |     |      \n", table[1], table[2], table[3], table[4], table[5], table[6], table[7], table[8], table[9]);
 
 }
 
-// This function update the Player position and mark
-int updateSheet(int pos, char marks, int player){
+/*----------------------------------------
+update mark on the screen using player
+selected position...
+----------------------------------------*/
+int updateTable(int pos, char mark, int player){
+
     //system("clear");
+    table[pos]=mark;
+    cout<<"position "<<pos<<endl;
+    cout<<"table in functin"<<table[pos]<<endl;
 
-    /* This is for testing purpose
-    cout<<"pos "<<pos<<" marks "<<marks<<endl;
-    seedTable[pos]=marks;
-    cout<<"seedTable: "<<seedTable[pos];
-    */
-    if( pos == 1 && seedTable[1]==1){
-        seedTable[1]=marks;
+
+/*----------------------------------------
+Here we check the pos and then mark the position
+----------------------------------------*/
+    if(pos==1 && table[1]=='1'){
+        table[pos]=mark;
+        displayTable();
         return player;
-    }else if(pos == 2 && seedTable[2]== 2){
-        seedTable[2]=marks;
+    }else if(pos==2 && table[2]=='2'){
+        table[pos]=mark;
+        displayTable();
         return player;
-    }else if(pos == 3 && seedTable[3]==3){
-        seedTable[3]=marks;
+    }else if(pos==3 && table[3]=='3'){
+        table[pos]=mark;
+        displayTable();
         return player;
-    }else if(pos == 4 && seedTable[4]==4){
-        seedTable[4]=marks;
+    }else if(pos==4 && table[4]=='4'){
+        table[pos]=mark;
+        displayTable();
         return player;
-    }else if(pos == 5 && seedTable[5]==5){
-        seedTable[5]=marks;
+    }else if(pos==5 && table[5]=='5'){
+        table[pos]=mark;
+        displayTable();
         return player;
-    }else if(pos == 6 && seedTable[6]==6){
-        seedTable[6]=marks;
+    }else if(pos==6 && table[6]=='6'){
+        table[pos]=mark;
+        displayTable();
         return player;
-    }else if(pos == 7 && seedTable[7]==7){
-        seedTable[7]=marks;
+    }else if(pos==7 && table[7]=='7'){
+        table[pos]=mark;
+        displayTable();
         return player;
-    }else if(pos == 8 && seedTable[8]==8){
-        seedTable[8]=marks;
+    }else if(pos==8 && table[8]=='8'){
+        table[pos]=mark;
+        displayTable();
         return player;
-    }else if(pos == 9 && seedTable[9]==9){
-        seedTable[9]=marks;
+    }else if(pos==9 && table[9]=='9'){
+        table[pos]=mark;
+        displayTable();
         return player;
     }else{
+      	cout<<"Please Enter Valid Position"<<endl;
+       player--;
+       cout<<"else position "<<pos<<endl;
+       cout<<"player "<<player<<endl;
+       displayTable();
+       return player;
+     }
 
-        cout<<"Invalid Selection!!"<<endl;
-        player--;
-        cout<<"Player in fucntion "<<player;
-        return player;
+}
+
+    /*----------------------------------------
+    game winner function
+    ----------------------------------------*/
+int gameWinner(){
+    if(table[1]==table[2] && table[2]==table[3]){
+        return 1;
+    }else if(table[4]==table[5] && table[5]==table[6]){
+        return 1;
+    }else if(table[7]==table[8] && table[8]==table[9]){
+        return 1;
+    }else if(table[1]==table[4] && table[4]==table[7]){
+        return 1;
+    }else if(table[2]==table[5] && table[5]==table[8]){
+        return 1;
+    }else if(table[3]==table[6] && table[6]==table[9]){
+        return 1;
+    }else if(table[7]==table[5] && table[5]==table[3]){
+        return 1;
+    }else if(table[9]==table[5] && table[5]==table[1]){
+        return 1;
+    }else if(table[1]!='1' && table[2]!='2' && table[3]!='3' && table[4]!='4' && table[5]!='5' && table[6]!='6'
+    && table[7]!='7' && table[8]!='8' && table[9]!='9'){
+            return 0; // if the element are not fulfulled then it will return 0 and loop will continue
+    }else{
+            return -1; // it will make exit from the loop
         }
-    GamePlate();   // calling the gamePlate function to show the outut on the screen.
+
+
 }
 
 
-// This function purform Wi9nner finder operation.
-int GameWin(){
 
-    // Check alternative option of winer combination for the position.
-    if(seedTable[1] == seedTable[2] && seedTable[2] == seedTable[3]){
-        return 1;
-    }else if(seedTable[4] == seedTable[5] && seedTable[5] == seedTable[6]){
-        return 1;
-    }else if(seedTable[7] == seedTable[8] && seedTable[8] == seedTable[9]){
-        return 1;
-    }else if(seedTable[1] == seedTable[4] && seedTable[4] == seedTable[7]){
-        return 1;
-    }else if(seedTable[2] == seedTable[5] && seedTable[5] == seedTable[8]){
-        return 1;
-    }else if(seedTable[3] == seedTable[6] && seedTable[6] == seedTable[9]){
-        return 1;
-    }else if(seedTable[7] == seedTable[5] && seedTable[5] == seedTable[3]){
-        return 1;
-    }else if(seedTable[1] == seedTable[5] && seedTable[5] == seedTable[9]){
-        return 1;
-    }else if(seedTable[1]!=1 && seedTable[2]!=2 && seedTable[1]!=3
-            && seedTable[2]!=4 && seedTable[5]!=5 && seedTable[6]!=6
-            && seedTable[7]!=7 && seedTable[8]!=8 && seedTable[9]!=9){
-                return 0;
-    }else{
-        return -1;
-    }
-}
-
-
-int main()
-{
-    //declare variable for the player
+int main(){
+    /*----------------------------------------
+     game into.. panel
+    ----------------------------------------*/
     int player=1;
 
-    // This is Welcome and Introduction poster.
     cout<<"\n\
     ********************************\n\
     *                              *\n\
@@ -130,40 +150,35 @@ int main()
     ********************************\n\
     * Player1->(0) || Player2->(X) *\n\
     *******************************\n"<<endl;
-    GamePlate();
-    //usleep(1000000);
-    //system("clear");
+    displayTable();
+    usleep(1000000);
+
     do{
-        player=(player%2==0)?2:1; // Player selection
+        player=(player%2==0)?2:1; //set player 1 as default
 
-        mark=(player==1)?'0':'X'; // selected Player mark .
+        mark=(player==1)?'0':'X'; // set player 1 mark as default
 
-        //cout<<player<<endl;  // for the checking position.
-        //cout<<mark<<endl;
+    /*----------------------------------------
+     Obatain user position
+    ----------------------------------------*/
+         cout<<"Player "<<player<<" Position :"<<endl;
+         cin>>position;
+         player=updateTable(position, mark, player);
 
-        cout<<"---[Player "<<player<<" ]"<<endl;
-        cout<<"Enter Your Position->";
-        cin>>position;
+         flage=gameWinner();
 
-        // Update the Sheet
-        cout<<"Player in Loop 0---> "<<player<<endl;
-        player = updateSheet(position, mark, player);
-        player++; // next player  chance...
-        cout<<"Player in Loop "<<player<<endl;
-        cout<<"Player value: after position"<<player<<endl;
+        player++;
+    }while(flage==-1);
 
-        i=GameWin(); // check the winner flag
-
-    }while(i==-1);
-
-    // declaring the winner.
-    if(i==1){
-        cout<<"player in result: "<<player<<endl;
-        player=(player%2==0)?1:2;
-        cout<<"Player "<<player<<" Win :)"<<endl;
+    if(flage==1){
+        cout<<"Congratulation :)"<<endl;
+        cout<<"++++[Player "<<player<<" is winner]++++"<<endl;
     }else{
-        cout<<"Draw"<<endl;
+        cout<<"Match Draw :("<<endl;
     }
+
+
+
 
     return 0;
 }
