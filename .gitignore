@@ -1,0 +1,6 @@
+*.o
+*.tmp
+*.temp
+tmp/
+temporary/
+temp/
