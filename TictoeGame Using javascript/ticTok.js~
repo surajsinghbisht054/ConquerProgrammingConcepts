@@ -1,0 +1,5 @@
+
+function update() {
+	var val_box=document.board.hor-btn.getElementsByClassName("push");
+		val_box.innerHTML='X';			
+}
