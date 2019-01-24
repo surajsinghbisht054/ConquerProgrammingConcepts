@@ -6,13 +6,15 @@ New Scripts
 ```
 ### Arvind Sharma (Working Over File/Folder name list)
 ```
-Working Over Tic Toe Game TikToeGame/main.cpp
+Working Over Tic Toe Game TikToeGame javascript
 
 ```
 
 ### Arvind Sharma Request To Suraj Singh
 ```
-
+Hey suraj as always i need your help
+I am not able to access each button and use its property...
+your any help appreciated... 
 ```
 
 ### Suraj Singh Request To Arvind Sharma
