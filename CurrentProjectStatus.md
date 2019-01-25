@@ -19,7 +19,10 @@ your any help appreciated...
 
 ### Suraj Singh Request To Arvind Sharma
 ```
-Tik Toe main Deleted By Me Because, Everything is Complete Mess of Codes. Nothing Looks Correct.
-That's Why I Suggest You To Rewrite It From Beginning. 
-Don't I Will Contribute Completely. 
+Directory Structure Re Design To make it more beautiful, 
+Your Code Management is Not Look Good.
+Use Heavy Comments. 
+Please give little more attention on codes.
+And, Yes I solved your little problem.
+
 ```
