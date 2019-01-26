@@ -1,36 +1,59 @@
+
+<!-- to tell browser what type of doc is it-->
 <!DOCTYPE html>
 <html lang="eng">
+
+	<!--This is head section of the document. -->
 	<head>
+		<!--Title of the document. -->
 		<title>Tic Tac Toe Game</title>
-		<meta charset="utf-8">;
+		<!--Meta Data -->
+		<meta charset="utf-8">
 		<meta name="author" content="Stunning Work" >
 		<meta name="discription" content="Tic Toe Game">
 		<link rel="stylesheet" href="style.css">
 	</head>
 
+	<!--Body section of the document -->
 	<body>
-		<br><br>
+
+		<!--Header section of the Body section -->
+		<header>
+					<h1>Tic Tac Toe Game</h1>
+		</header>
+
 		<center>
-			<h1>Tic Tac Toe Game</h1>
-		</center>
+		<!--Main division part-->
 		<div class="board">
+			<!--hor-btn section  -->
 			<div class="hor-btn">
-				<button id="push" value="1">-</button>
-				<button id="push" value="2">-</button>
-				<button id="push" value="3">-</button>
+				<!--buttons of the game-->
+				<button class="push" value="1">
+				<button class="push" value="2">
+				<button class="push" value="3">
 			</div>
+			<!--second hor-btn section -->
 			<div class="hor-btn">
-				<button id="push" value="4">-</button>
-				<button id="push" value="5">-</button>
-				<button id="push" value="6">-</button>
+				<!--buttons of the game-->
+				<button class="push" value="4">
+				<button class="push" value="5">
+				<button class="push" value="6">
 			</div>
+			<!--third hor-btn section-->
 			<div class="hor-btn">
-				<button id="push" value="7">-</button>
-				<button id="push" value="8">-</button>
-				<button id="push" value="9">-</button>
+				<!--buttons of the game-->
+				<button class="push" value="7">
+				<button class="push" value="8">
+				<button class="push" value="9">
 			</div>
+			<!--this divison used for the reset game status-->
+			<div id="reset">Reset</div>
 		</div>
+
+		<!--At last declare of the Script documents -->
+		</center>
+		<script src="jquery-3.3.1.min.js"></script>
 		<script src="ticTok.js"></script>
 	</body>
-
+<!--End of the Html document -->
 </html>

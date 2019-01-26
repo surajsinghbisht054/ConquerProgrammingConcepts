@@ -1,35 +1,49 @@
-*margin{
-	margin:0;
-	padding:0;
+*{
+	margin: 0px;
+	padding: 0px;
 }
-h1{
-	font-family: san-sarif;
-	font-size: 40px;
+
+header{
+	margin: 0;
+	padding: 0;
+	background-color: black;
+	font-family: arial;
+	font-weight: bolder;
+	font-size: 50px;
 	color: black;
-	text-shadow: 20px, black;
+	text-shadow: 2px 2px  white;
+	text-align: center;
 }
 .board{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 350px;
-
+	margin-top: 50px;
 }
-button{
 
-	height: 50px;
-	width: 50px;
+button{
+	height: 100px;
+	width: 100px;
 	padding: 0px;
-	border: 2px solid black;
+	border: 1px solid black;
 	font-family: sans-serif;
 	color: black;
 	margin: 0px;
-	font-size: 30px;
+	font-size: 80px;
 	text-align: center;
 	font-weight: bold;
 	text-shadow:
+
 }
 body{
-	background-color: #g4f4f4;
-
+	background-color: skyblue;
+}
+#reset{
+	margin-top: 20px;
+	height: 50px;
+	width: 300px;
+	border: 2px solid black;
+	text-shadow: 1px 1px 0.5 blue;
+	background-color: black;
+	font-weight: bold;
+	font-style: arial;
+	color: white;
+	text-align: center;
 }
