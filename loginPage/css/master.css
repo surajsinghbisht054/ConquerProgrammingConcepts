@@ -57,5 +57,7 @@ body {
 }
 
 footer {
+  position: inherit;
+  top: 1500;
   background: black;
 }

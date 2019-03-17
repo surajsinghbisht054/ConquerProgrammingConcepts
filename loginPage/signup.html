@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <!-- meta tages -->
+    <!-- meta tags -->
     <meta charset="utf-8">
     <meta name="author" content="slowestwind">
-    <meta name="content" content="login page for a any website">
+    <meta name="content" content="sign up page for a website">
+    <title>Sign Up</title>
 
     <!-- links -->
     <link rel="stylesheet" href="/css/master.css">
-
-    <title>Login Page</title>
+    <link rel="stylesheet" href="/css/signup.css">
   </head>
-
   <body>
     <!-- navigation -->
     <section class="navigation">
@@ -28,26 +27,23 @@
       </div>
     </section>
 
-    <!-- Login content -->
-    <section class="login">
-      <div class="login-container">
-        <form class="login-form" action="index.html" method="post">
-          <input type="text" id="Username" name="Username" value="Username"><br>
-          <input type="text" id="Password" name="Password" value="Password"><br>
-          <input type="submit" id="Submit" name="Submit" value="Submit"><br>
-          <div class="text">
-                  <a href="forgetPassword.php">Forget Password?</a> <br>
-            If you don't have Account? <a href="signup.html">Sign Up</a> Here <br>
+    <div class="main-message">
+      <h1>Sign up</h1>
+    </div>
 
-          </div>
-            </form>
-      </div>
-    </section>
-
+    <!-- sign up form -->
+    <form class="signup-form" action="signup.html" method="post">
+      <input type="text" name="username" value="Username"><br>
+      <input type="text" name="email" value="E-mail"><br>
+      <input type="text" name="password1" value="Password"><br>
+      <input type="text" name="password2" value="Retype Password"><br>
+      <input type="submit" id="submit" name="submit" value="Sign Up Submit"><br>
+    </form>
 
     <!-- footer -->
     <!-- <footer>
       Copyright &copy; right reserver by slowestwind, 2019
     </footer> -->
+
   </body>
 </html>
