@@ -4,6 +4,7 @@
   include("config.php");
   // session start
   session_start();
+  $error = "";
   if($_SERVER["REQUEST_METHOD"]=="POST") {
 
     // store the username and password sent from form
@@ -11,16 +12,16 @@
     $mypassword = mysqli_real_escape_string($db, $_POST['password']);
 
     // sql querry
-    $sql = "SELECT id FROM loginform WHERE userame = '$myusername' and passcode = '$mypassword'";
+    $sql = "SELECT id FROM loginform WHERE username = '$myusername' and passcode = '$mypassword'";
     $result = mysqli_query($db, $sql); // function to send data to DB_DATABASE
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $active = $row['active'];
+    // $active = $row['active'];
 
     $count = mysqli_num_rows($result);
 
     // if result matched $myusername and $mypassword, tabe row must be 1 row
     if($count == 1) {
-      session_register("$myusername");
+      // session_register('$myusername');
       $_SESSION['login_user'] = $myusername;
       // send to the page
       header("location: welcome.php");
@@ -73,9 +74,9 @@
           <div class="">
             <?php echo $error;?>
           </div>
-          <input type="text" id="Username" name="Username" value="Username"><br>
-          <input type="password" id="Password" name="Password" value="Password"><br>
-          <input type="submit" id="Submit" name="Submit" value="Submit"><br>
+          <input type="text" id="Username" name="username" value="Username"><br>
+          <input type="password" id="Password" name="password" value="Password"><br>
+          <input type="submit" id="Submit" name="submit" value="Submit"><br>
           <div class="text">
                   <a href="forgetPassword.php">Forget Password?</a> <br>
             If you don't have Account? <a href="signup.html">Sign Up</a> Here <br>
