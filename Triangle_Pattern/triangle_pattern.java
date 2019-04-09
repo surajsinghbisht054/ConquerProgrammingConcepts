@@ -1,5 +1,5 @@
 /****************************************************************
-* Triangle_Pattern.java
+* triangle_pattern.java
 * Author: Himanshu Sharma
 * Contact: 9818805401hs@gmail.com
 * Discription : This is Practice for creating Pattern on screen for learning purpose.
