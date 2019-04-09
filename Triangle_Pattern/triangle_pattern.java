@@ -1,3 +1,11 @@
+/****************************************************************
+* Triangle_Pattern.java
+* Author: Himanshu Sharma
+* Contact: 9818805401hs@gmail.com
+* Discription : This is Practice for creating Pattern on screen for learning purpose.
+*
+/******************************************************************/
+
 import java.util.Scanner;
 class triangle
 {   int a,b;
