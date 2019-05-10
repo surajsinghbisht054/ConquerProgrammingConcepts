@@ -1,0 +1,270 @@
+<!--
+
+    Author :    
+
+            Himanshu Sharma
+            Github - himanshu-sharam2018
+            himanshusharma2972@gmail.com
+            www.blaregroup.com
+    *********************************************
+                   Snake Game
+    *********************************************
+
+        
+    About:
+        It is just a simple snake game which we used to play in keypad mobiles.
+        use keyboard arrow button to play this game
+
+
+-->
+
+<html>
+<head>
+<title>Snake Game</title>
+<style>
+body{background-color:black}
+#gamearea{border:1px solid black;height:500;width:600;margin:80px auto;background-color:darkred;}
+#score_container{position:relative;left:220px;top:25px;color:white;}
+#playarea{height:400px;width:500px;border:2px solid red;border-radius:5px;margin:30px auto;margin-bottom:0px;background-color:lightgreen;}
+#snake_food{background:red;height:7px;width:7px;border-radius:100%;position:relative;display:block;}
+#snake{background:black;height:4px;width:20px;border-top-right-radius:10px;border-bottom-right-radius:10px;position:relative;padding:4px;
+        top:200px;left:250px;}
+#leye,#reye{background:red;height:3px;width:3px;border-radius:100%;}
+#leye{margin-left:15px;margin-top:-2px;}
+#reye{margin-left:15px;margin-top:2px;}
+</style>
+
+<script>
+/*Global declaring of variables*/
+var score=0;   //represent user score
+var posl=250;  //represent snake position from left side  
+var posu=200;  //represent snake position from upper side
+var i,j;       //represents position of food
+var t;         //used to hold the program 
+var sleep=10;  //represent for how much time program is being holded
+
+/*  creating food for snake */
+function create_food()
+{	
+    var food=document.getElementById("snake_food");
+	
+    i=Math.floor(Math.random()*(400-10));
+	j=Math.floor(Math.random()*(350-10));
+	
+    food.style.left=i+"px";
+	food.style.top=j+"px";
+
+}
+
+//get user input by keyboard
+function getkey(e)
+{
+		
+    /****************************************
+            left_arrow key=37
+            up_arrow key=38
+            right_arrow key=39
+            down_arrow key=40
+    *****************************************/
+
+        var key=e.which||e.keyCode;  //getting key no.
+		switch(key)
+		{
+			case 37:move(4);break;   //left
+			case 38:move(3);break;   // up
+			case 39:move(1);break;   //right
+			case 40:move(2);break;   //down 
+		}
+}
+
+/*moving of snake*/
+function move(x)
+{     
+    /*used to speed up the snake */ 
+      if(score>10){sleep=6;}
+      if(score>20){sleep=4;}  
+          
+    
+    if(x==1){clearInterval(t); t=setInterval(right,sleep);}
+    if(x==2){clearInterval(t); t=setInterval(down,sleep); }
+    if(x==3){clearInterval(t); t=setInterval(up,sleep);}
+    if(x==4){clearInterval(t); t=setInterval(left,sleep);}
+	if(x==5){clearInterval(t);}
+      
+}
+
+/*moves snake to right side*/
+function right()
+{   var lefteye=document.getElementById("leye");
+    var righteye=document.getElementById("reye");
+    var snk=document.getElementById("snake");
+    
+    posl+=1;    
+         
+        if(posl>=472)
+            {alert("Game Over"+"\nTotal Score="+score);clearInterval(t);restart();}
+       else{    
+                snk.style.left=posl+"px";
+                snk.style.height="4px";            
+                snk.style.width="20px";
+                snk.style.borderBottomLeftRadius="0px";
+                snk.style.borderBottomRightRadius="10px";
+                snk.style.borderTopLeftRadius="0px";
+                snk.style.borderTopRightRadius="10px";
+                lefteye.style.marginLeft="15px";
+                righteye.style.marginLeft="15px";
+                righteye.style.marginTop="2px";
+                lefteye.style.marginTop="-2px";
+                
+                bite(posl+15,posu+4);   //check eating of food
+            }
+}
+
+/*moves snake to left side*/
+function left()
+{   var lefteye=document.getElementById("leye");
+    var righteye=document.getElementById("reye");
+    var snk=document.getElementById("snake");
+
+    posl-=1;   
+    if(posl<1){alert("Game Over"+"\nTotal Score="+score);clearInterval(t);restart();}
+    else{   
+            snk.style.left=posl+"px";
+            snk.style.height="4px";            
+            snk.style.width="20px";
+            snk.style.borderBottomLeftRadius="10px";
+            snk.style.borderBottomRightRadius="0px";
+            snk.style.borderTopLeftRadius="10px";
+            snk.style.borderTopRightRadius="0px";
+            lefteye.style.marginLeft="5px";
+            righteye.style.marginLeft="5px";
+            righteye.style.marginTop="2px";
+            lefteye.style.marginTop="-2px";
+            
+            bite(posl,posu+4);    //check eating of food 
+        }
+
+}
+
+/*moves snake to up side*/
+function up()
+{   var lefteye=document.getElementById("leye");
+    var righteye=document.getElementById("reye");
+    var snk=document.getElementById("snake");
+
+    posu-=1;
+    if(posu<=-10){alert("Game Over"+"\nTotal Score="+score);clearInterval(t);restart();}
+    else{
+            snk.style.top=posu+"px";
+            snk.style.height="20px";            
+            snk.style.width="4px";
+            snk.style.borderBottomLeftRadius="0px";
+            snk.style.borderBottomRightRadius="0px";
+            snk.style.borderTopRightRadius="10px";
+            snk.style.borderTopLeftRadius="10px";
+            lefteye.style.marginLeft="-1px";
+            righteye.style.marginLeft="3px";
+            righteye.style.marginTop="-3px";
+            lefteye.style.marginTop="5px";
+            
+            bite(posl+2,posu);  //check eating of food
+        }
+
+}
+
+/*moves snake to down side*/
+function down()
+{   var lefteye=document.getElementById("leye");
+    var righteye=document.getElementById("reye");
+    var snk=document.getElementById("snake");
+
+    posu+=1;
+    if(posu>=365){alert("Game Over"+"\nTotal Score="+score);clearInterval(t);restart();}
+    else{
+            snk.style.top=posu+"px";
+            snk.style.height="20px";            
+            snk.style.width="4px";
+            snk.style.borderBottomLeftRadius="10px";
+            snk.style.borderBottomRightRadius="10px";
+            snk.style.borderTopLeftRadius="0px";
+            snk.style.borderTopRightRadius="0px";
+            lefteye.style.marginLeft="-1px";
+            righteye.style.marginLeft="3px";
+            righteye.style.marginTop="-3px";
+            lefteye.style.marginTop="15px";
+            
+            bite(posl+2,posu+15);   //check eating of food
+        }
+
+
+}
+
+/*   this function checks the eating of food by snake
+    It takes the position of snake as argument
+*/
+function bite(left,top)
+{  
+    for(k=0;k<=7;k++)
+    {
+        if((i==left-k || i==left+k) && (j==top-k|| j==top+k))
+        {
+            score++;    //incrementing score by 1
+            document.getElementById("score_Value").innerHTML=score;  
+
+            create_food();     //create another food 
+        }
+    }
+
+}
+
+/*this function restart the game*/
+function restart()
+{
+    posl=250;
+    posu=200;
+    score=0;
+    var lefteye=document.getElementById("leye");
+    var righteye=document.getElementById("reye");
+    document.getElementById("score_Value").innerHTML=score;
+    var snk=document.getElementById("snake");
+        snk.style.left=posl+"px";
+        snk.style.top=posu+"px";
+        snk.style.height="4px";            
+        snk.style.width="20px";
+        snk.style.borderBottomLeftRadius="0px";
+        snk.style.borderBottomRightRadius="10px";
+        snk.style.borderTopLeftRadius="0px";
+        snk.style.borderTopRightRadius="10px";
+        lefteye.style.marginLeft="15px";
+        righteye.style.marginLeft="15px";
+        righteye.style.marginTop="2px";
+        lefteye.style.marginTop="-2px";
+    create_food();
+}
+
+</script>
+</head>
+<body onkeydown="getkey(event)" onload="create_food()">
+
+<div id="gamearea">
+    
+    <div id="score_container">
+        <div id="score_Label"><b>User Score = </b></div>
+        <div id="score_Value" style="height:20px;width:100px;margin-top:-18px;margin-left:130px">0</div>
+    </div>
+
+    <div id="playarea">
+        <div id="snake_food"></div>
+       
+        <div id="snake">
+            <div id="leye"></div>
+            <div id="reye"></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
